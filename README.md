@@ -167,6 +167,41 @@ Output is saved automatically to `outputs/` after each prompt.
 
 ---
 
+### Cursor, Windsurf & Antigravity
+
+The prompts work with any AI-powered editor that lets you reference files. Open the repo as your workspace and use the Read approach in the chat panel.
+
+**Cursor**
+
+Open the repo folder in Cursor, then use the chat (`Cmd+L`):
+
+```
+@skills/technical-seo/robots-txt-audit.md follow the instructions in this file.
+[paste robots.txt here]
+```
+
+**Windsurf**
+
+Open the repo folder in Windsurf, then use Cascade:
+
+```
+Read skills/reporting-analysis/google-search-console-analysis.md and follow its instructions.
+GSC data: data/gsc-queries.csv. Site: acme.com. Period: last 3 months.
+```
+
+**Antigravity**
+
+Open the repo folder as your workspace:
+
+```
+Read brand-voice.md and then read skills/content-link-building/write-blog-post.md and follow its instructions.
+Primary keyword: "email marketing", site: acme.com
+```
+
+All three tools support referencing local files, so you can drop data into `data/` and point the prompt at it the same way as with Gemini CLI.
+
+---
+
 ### Working with data files
 
 Drop client data into the `data/` folder before running any analytics or audit prompt.
