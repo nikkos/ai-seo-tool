@@ -484,3 +484,9 @@ GEO workflow:
   → /geo-entity → /geo-rewrite
   → /geo-audit  (score the final page before publishing)
 ```
+
+---
+
+## 🗺️ Next Steps
+
+- [ ] **ChatGPT support** — add `chatgpt.md` context file and usage instructions for ChatGPT (custom GPTs or Projects)
