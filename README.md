@@ -262,6 +262,165 @@ seo-ai-tool update
 
 ---
 
+## Real-world example
+
+Let's say you are an SEO consultant with two clients. Here is the full workflow from zero to running commands.
+
+### Your folder structure
+
+```
+~/projects/
+├── project1/          ← Client 1: an e-commerce store
+│   ├── brand-voice.md
+│   ├── data/
+│   │   ├── gsc-performance.csv
+│   │   ├── ga4-organic.csv
+│   │   └── screaming-frog-export.csv
+│   └── outputs/
+└── project2/          ← Client 2: a local service business
+    ├── brand-voice.md
+    ├── data/
+    │   └── gsc-performance.csv
+    └── outputs/
+```
+
+---
+
+### Step 1 — Install seo-ai-tool globally (do this once, ever)
+
+```bash
+npm install -g seo-ai-tool
+seo-ai-tool install
+```
+
+This installs all 50+ commands globally. They are now available in every folder on your computer.
+
+---
+
+### Step 2 — Set up project1
+
+```bash
+cd ~/projects/project1
+
+# Create the local overrides folder and a README explaining the system
+seo-ai-tool init
+```
+
+This creates a `.claude/commands/` folder inside `project1`. Any prompt you place here will override the global version — only for this project.
+
+---
+
+### Step 3 — Add your client data
+
+Export your data from Google Search Console, GA4, or Screaming Frog and drop the files into `data/`:
+
+```
+project1/
+└── data/
+    ├── gsc-performance.csv       ← exported from Google Search Console
+    ├── ga4-organic.csv           ← exported from GA4 → Acquisition → Organic
+    └── screaming-frog-export.csv ← exported from Screaming Frog → Internal tab
+```
+
+---
+
+### Step 4 — Add a brand voice file (optional but recommended)
+
+Create `brand-voice.md` in the project root and describe the client's tone:
+
+```markdown
+# Brand Voice — Project1
+
+- Tone: friendly, confident, never salesy
+- Audience: small business owners aged 30-50
+- Avoid: jargon, passive voice, filler phrases like "In conclusion"
+- Always use: "you" to address the reader directly
+- Example sentence: "Here's exactly what you need to do to rank higher this month."
+```
+
+All content commands (`/write-blog`, `/product-description`, etc.) will read this file automatically.
+
+---
+
+### Step 5 — Start Claude Code and run commands
+
+```bash
+cd ~/projects/project1
+claude
+```
+
+Now inside Claude Code, start running commands:
+
+**Analyze your GSC data:**
+```
+/gsc-performance
+```
+Then paste the contents of `data/gsc-performance.csv` when prompted — or just tell Claude:
+```
+/gsc-performance data/gsc-performance.csv
+```
+
+**Write a blog post (respects brand voice automatically):**
+```
+/write-blog primary keyword: "best running shoes for flat feet", secondary keywords: "flat feet running, motion control shoes"
+```
+
+**Run a full site audit:**
+```
+/internal-links data/screaming-frog-export.csv
+```
+
+**Analyze organic traffic:**
+```
+/ga4-traffic data/ga4-organic.csv
+```
+
+---
+
+### Step 6 — Save your outputs
+
+After each command, ask Claude to save the result:
+
+```
+Save the output to outputs/gsc-performance-2026-02.md
+```
+
+Your project folder now looks like this:
+
+```
+project1/
+├── brand-voice.md
+├── .claude/
+│   └── commands/          ← customized prompts for this client (if any)
+├── data/
+│   ├── gsc-performance.csv
+│   ├── ga4-organic.csv
+│   └── screaming-frog-export.csv
+└── outputs/
+    ├── gsc-performance-2026-02.md
+    ├── write-blog-running-shoes-2026-02.md
+    └── internal-links-audit-2026-02.md
+```
+
+---
+
+### Step 7 — Customize a prompt for this client (optional)
+
+If you want the `/write-blog` command to always use a specific structure for this client:
+
+```bash
+# Copy the global prompt into the project
+cp ~/.claude/commands/write-blog.md ~/projects/project1/.claude/commands/write-blog.md
+
+# Edit it to add client-specific rules
+```
+
+Now `/write-blog` behaves differently in `project1` but stays the same everywhere else.
+
+When you switch to `project2`, the global version is used — until you set up overrides there too.
+
+---
+
 ## License
 
 MIT
