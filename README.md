@@ -1,14 +1,14 @@
 # 🔍 AI SEO Skills
 
-> Ready-to-use AI prompts for professional SEO work — covering technical audits, content creation, link building, local SEO, e-commerce, analytics, and reporting.
+> Ready-to-use AI prompts for professional SEO work: covering technical audits, content creation, link building, local SEO, e-commerce, analytics, and reporting.
 
-Each prompt is structured with a defined role, objective, and output format — run as slash commands in Claude Code or use the Read approach with Gemini CLI for professional, structured results.
+Each prompt is structured with a defined role, objective, and output format, run as slash commands in Claude Code or use the Read approach with Gemini CLI for professional, structured results.
 
-> ⚡ **Fastest workflow (Claude Code):** Clone this repo, symlink the commands globally, and type slash commands from any project folder — no copy-pasting prompts, no file paths. See [Setup](#setup).
+> ⚡ **Fastest workflow (Claude Code):** Clone this repo, symlink the commands globally, and type slash commands from any project folder, no copy-pasting prompts, no file paths. See [Setup](#setup).
 
 > 💡 **Also works great with Gemini CLI:** Use the Read approach pointing to the `skills/` folder. See [Gemini CLI](#gemini-cli).
 
-> ⚠️ **Always review AI output before using it.** LLMs can make mistakes — facts, URLs, schema syntax, redirect rules, or recommendations may be incorrect. Treat every output as a first draft that requires human review before publishing, deploying, or sending to a client.
+> ⚠️ **Always review AI output before using it.** LLMs can make mistakes, facts, URLs, schema syntax, redirect rules, or recommendations may be incorrect. Treat every output as a first draft that requires human review before publishing, deploying, or sending to a client.
 
 > 🔒 **Always get client permission before sharing their data with any AI tool.** Analytics exports, Search Console data, crawl reports, server logs, and similar files contain proprietary business information that belongs to the client. Never upload or paste client data into an AI system without explicit written permission to do so.
 
@@ -64,7 +64,7 @@ ai-seo-skills/
 
 **Recommended: symlink (one repo, works across all projects)**
 
-Install once and every project on your machine gets the commands automatically. When you update a skill in the repo, all projects see the change instantly — no copying needed.
+Install once and every project on your machine gets the commands automatically. When you update a skill in the repo, all projects see the change instantly. No copying needed.
 
 ```bash
 # Back up existing global commands if any
