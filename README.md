@@ -138,18 +138,18 @@ Gemini reads `GEMINI.md` automatically and knows all available skills.
 **Run a prompt using the Read approach:**
 
 ```
-Read skills/technical-seo/robots-txt-audit.md and follow its instructions.
+Read skills/technical-seo/robots-audit.md and follow its instructions.
 [paste robots.txt here]
 ```
 
 ```
-Read skills/analytics/ga4-organic-traffic-analysis.md and follow its instructions.
+Read skills/analytics/ga4-traffic.md and follow its instructions.
 The GA4 data is in data/ga4-export.csv. Site: acme.com. Period: last 3 months vs prior 3 months.
 ```
 
 With brand voice:
 ```
-Read brand-voice.md and then read skills/content-link-building/write-blog-post.md and follow its instructions.
+Read brand-voice.md and then read skills/content-link-building/write-blog.md and follow its instructions.
 Primary keyword: "email marketing", site: acme.com
 ```
 
@@ -169,12 +169,12 @@ No installation needed. Use inside a **ChatGPT Project**.
 **Run a prompt:**
 
 ```
-Use the robots-txt-audit skill and audit this robots.txt:
+Use the robots-audit skill and audit this robots.txt:
 [paste robots.txt here]
 ```
 
 ```
-Use the ga4-organic-traffic-analysis skill.
+Use the ga4-traffic skill.
 The GA4 data is attached. Site: acme.com. Period: last 3 months vs prior 3 months.
 ```
 
@@ -188,19 +188,19 @@ Open the repo as your workspace and reference skill files directly in the chat p
 
 **[Cursor](https://cursor.com)** — use the chat (`Cmd+L`):
 ```
-@skills/technical-seo/robots-txt-audit.md follow the instructions in this file.
+@skills/technical-seo/robots-audit.md follow the instructions in this file.
 [paste robots.txt here]
 ```
 
 **[Windsurf](https://windsurf.com)** — use Cascade:
 ```
-Read skills/reporting-analysis/google-search-console-analysis.md and follow its instructions.
+Read skills/reporting-analysis/gsc-performance.md and follow its instructions.
 GSC data: data/gsc-queries.csv. Site: acme.com. Period: last 3 months.
 ```
 
 **[Antigravity](https://antigravity.google):**
 ```
-Read brand-voice.md and then read skills/content-link-building/write-blog-post.md and follow its instructions.
+Read brand-voice.md and then read skills/content-link-building/write-blog.md and follow its instructions.
 Primary keyword: "email marketing", site: acme.com
 ```
 
@@ -332,16 +332,16 @@ Prompts are designed to feed into each other.
 
 | Prompt | What it does | Get data from | Command |
 |---|---|---|---|
-| `robots-txt-audit.md` | Audits robots.txt for blocked resources, syntax errors, and missing sitemap directives. Returns severity-labeled findings and a corrected robots.txt. | `yoursite.com/robots.txt` | `/robots-audit` |
-| `xml-sitemap-audit.md` | Audits XML sitemaps for non-200 URLs, noindex conflicts, and structural issues. Produces a health score and corrected XML. | `yoursite.com/sitemap.xml` · GSC Coverage report | `/sitemap-audit` |
-| `schema-markup-generator.md` | Generates valid JSON-LD for any schema type with a rich result eligibility checklist. | Page content (no export needed) | `/schema-generator` |
-| `canonical-tags-audit.md` | Audits canonical tags for chains, conflicts, and HTTP/HTTPS mismatches. | Screaming Frog · Sitebulb · Ahrefs | `/canonical-audit` |
+| `robots-audit.md` | Audits robots.txt for blocked resources, syntax errors, and missing sitemap directives. Returns severity-labeled findings and a corrected robots.txt. | `yoursite.com/robots.txt` | `/robots-audit` |
+| `sitemap-audit.md` | Audits XML sitemaps for non-200 URLs, noindex conflicts, and structural issues. Produces a health score and corrected XML. | `yoursite.com/sitemap.xml` · GSC Coverage report | `/sitemap-audit` |
+| `schema-generator.md` | Generates valid JSON-LD for any schema type with a rich result eligibility checklist. | Page content (no export needed) | `/schema-generator` |
+| `canonical-audit.md` | Audits canonical tags for chains, conflicts, and HTTP/HTTPS mismatches. | Screaming Frog · Sitebulb · Ahrefs | `/canonical-audit` |
 | `hreflang-audit.md` | Audits hreflang annotations for missing return links and incorrect BCP 47 codes. | Screaming Frog (Hreflang tab) · Sitebulb | `/hreflang-audit` |
-| `core-web-vitals-diagnosis.md` | Diagnoses LCP, INP, and CLS failures with root-cause analysis and a developer handoff checklist. | PageSpeed Insights · GSC Core Web Vitals | `/cwv-diagnosis` |
-| `redirect-map-generator.md` | Generates a redirect map CSV and server config rules (Apache, Nginx, Cloudflare). | Migration spreadsheet · Screaming Frog | `/redirect-map` |
-| `internal-linking-audit.md` | Audits internal link structure for orphaned pages, poor anchor text, and topic cluster gaps. | Screaming Frog · Sitebulb · Ahrefs | `/internal-links` |
-| `check-server-app-logs.md` | Analyzes server logs for 404s, 5xx errors, redirect chains, and Googlebot anomalies. | Nginx · Apache · Cloudflare logs | `/server-logs` |
-| `crawl-budget-analysis.md` | Identifies crawl waste (faceted URLs, duplicate parameters, thin pages) and undercrawled priority pages. | Server log export · Screaming Frog · GSC Coverage | `/crawl-budget` |
+| `cwv-diagnosis.md` | Diagnoses LCP, INP, and CLS failures with root-cause analysis and a developer handoff checklist. | PageSpeed Insights · GSC Core Web Vitals | `/cwv-diagnosis` |
+| `redirect-map.md` | Generates a redirect map CSV and server config rules (Apache, Nginx, Cloudflare). | Migration spreadsheet · Screaming Frog | `/redirect-map` |
+| `internal-links.md` | Audits internal link structure for orphaned pages, poor anchor text, and topic cluster gaps. | Screaming Frog · Sitebulb · Ahrefs | `/internal-links` |
+| `server-logs.md` | Analyzes server logs for 404s, 5xx errors, redirect chains, and Googlebot anomalies. | Nginx · Apache · Cloudflare logs | `/server-logs` |
+| `crawl-budget.md` | Identifies crawl waste (faceted URLs, duplicate parameters, thin pages) and undercrawled priority pages. | Server log export · Screaming Frog · GSC Coverage | `/crawl-budget` |
 
 ---
 
@@ -349,14 +349,14 @@ Prompts are designed to feed into each other.
 
 | Prompt | What it does | Get data from | Command |
 |---|---|---|---|
-| `title-tag-rewrite.md` | Rewrites title tags for CTR and keyword placement. Two variants per title with character counts. | Screaming Frog · GSC Performance | `/title-rewrite` |
-| `heading-structure-audit.md` | Audits H1–H3 structure and outputs a fully optimized heading outline. | Screaming Frog (H1/H2 reports) · view-source | `/headings-audit` |
-| `image-alt-text-generator.md` | Generates SEO-optimized, accessibility-compliant alt text. | Screaming Frog (Images tab) · Sitebulb | `/alt-text` |
+| `title-rewrite.md` | Rewrites title tags for CTR and keyword placement. Two variants per title with character counts. | Screaming Frog · GSC Performance | `/title-rewrite` |
+| `headings-audit.md` | Audits H1–H3 structure and outputs a fully optimized heading outline. | Screaming Frog (H1/H2 reports) · view-source | `/headings-audit` |
+| `alt-text.md` | Generates SEO-optimized, accessibility-compliant alt text. | Screaming Frog (Images tab) · Sitebulb | `/alt-text` |
 | `content-brief.md` | Creates a writer-ready content brief: intent, heading outline, subtopics, SEO specs, and internal linking plan. | Ahrefs · Semrush · Google SERP | `/content-brief` |
 | `content-refresh.md` | Section-by-section refresh plan (KEEP / UPDATE / EXPAND / CUT / ADD NEW) with rewritten sections. | Existing article (paste directly) · GSC Performance | `/content-refresh` |
-| `faq-section-generator.md` | Generates a PAA-targeted FAQ section with 6–12 Q&As and FAQPage JSON-LD. | Google PAA · AlsoAsked · AnswerThePublic | `/faq-generator` |
-| `thin-content-rewrite.md` | Diagnoses why a page is thin and rewrites it into comprehensive, intent-matched content. | Screaming Frog (word count) · GSC low-traffic pages | `/thin-content` |
-| `write-meta-descriptions.md` | Generates click-optimized meta descriptions (150–160 characters) with keyword and CTA. | Screaming Frog · GSC | `/meta-descriptions` |
+| `faq-generator.md` | Generates a PAA-targeted FAQ section with 6–12 Q&As and FAQPage JSON-LD. | Google PAA · AlsoAsked · AnswerThePublic | `/faq-generator` |
+| `thin-content.md` | Diagnoses why a page is thin and rewrites it into comprehensive, intent-matched content. | Screaming Frog (word count) · GSC low-traffic pages | `/thin-content` |
+| `meta-descriptions.md` | Generates click-optimized meta descriptions (150–160 characters) with keyword and CTA. | Screaming Frog · GSC | `/meta-descriptions` |
 
 ---
 
@@ -365,15 +365,15 @@ Prompts are designed to feed into each other.
 | Prompt | What it does | Get data from | Command |
 |---|---|---|---|
 | `keyword-research.md` | Full keyword research: tiered keywords, intent classification, difficulty, and cluster suggestions. | Ahrefs · Semrush · Google Keyword Planner | `/keyword-research` |
-| `write-blog-post.md` | 1,200–1,800 word SEO blog post with heading hierarchy, keyword placement, and meta elements. | Brief / keyword (no export needed) | `/write-blog` |
-| `pillar-page-writer.md` | 2,500–4,000 word pillar page with table of contents, cluster link placeholders, and FAQ. | Ahrefs · Semrush · SERP research | `/pillar-page` |
-| `topic-cluster-planner.md` | Complete topic cluster: pillar + 8–15 cluster articles with keyword targets and internal linking map. | Ahrefs · Semrush · Google SERP | `/topic-cluster` |
+| `write-blog.md` | 1,200–1,800 word SEO blog post with heading hierarchy, keyword placement, and meta elements. | Brief / keyword (no export needed) | `/write-blog` |
+| `pillar-page.md` | 2,500–4,000 word pillar page with table of contents, cluster link placeholders, and FAQ. | Ahrefs · Semrush · SERP research | `/pillar-page` |
+| `topic-cluster.md` | Complete topic cluster: pillar + 8–15 cluster articles with keyword targets and internal linking map. | Ahrefs · Semrush · Google SERP | `/topic-cluster` |
 | `content-calendar.md` | SEO content calendar in markdown table format with keyword targets and topic cluster mapping. | Ahrefs · Semrush · existing content audit | `/content-calendar` |
 | `comparison-article.md` | 1,500–2,500 word commercial comparison article with head-to-head table and verdict section. | G2 · Capterra · product/pricing pages | `/comparison-article` |
-| `outreach-email-template.md` | Full outreach sequence (initial + 2 follow-ups) for 6 link building campaign types. | Hunter.io · LinkedIn · Ahrefs | `/outreach-email` |
-| `unlinked-brand-mention-pitch.md` | High-conversion pitch to turn unlinked brand mentions into backlinks. | Google Alerts · Ahrefs Mentions · Brand24 | `/brand-mention-pitch` |
+| `outreach-email.md` | Full outreach sequence (initial + 2 follow-ups) for 6 link building campaign types. | Hunter.io · LinkedIn · Ahrefs | `/outreach-email` |
+| `brand-mention-pitch.md` | High-conversion pitch to turn unlinked brand mentions into backlinks. | Google Alerts · Ahrefs Mentions · Brand24 | `/brand-mention-pitch` |
 | `press-release.md` | 400–600 word AP-style press release for launches, funding, partnerships, or events. | Internal company data | `/press-release` |
-| `write-a-backlink-article.md` | 500–700 word editorial article with a natural backlink placement using the exact anchor text. | Keyword + target URL | `/backlink-article` |
+| `backlink-article.md` | 500–700 word editorial article with a natural backlink placement using the exact anchor text. | Keyword + target URL | `/backlink-article` |
 
 ---
 
@@ -381,9 +381,9 @@ Prompts are designed to feed into each other.
 
 | Prompt | What it does | Get data from | Command |
 |---|---|---|---|
-| `google-business-profile-description.md` | 3 GBP description variants optimized for local keywords and Google's 750-character limit. | Google Business Profile dashboard | `/gbp-description` |
-| `local-landing-page-writer.md` | Complete local landing page (600–1,000 words) for a service + city with FAQ and LocalBusiness schema. | Internal business data | `/local-landing` |
-| `review-response-templates.md` | 12 review response templates covering 5-star, 3-star, and 1–2 star reviews. | Google Business Profile · Yelp | `/review-responses` |
+| `gbp-description.md` | 3 GBP description variants optimized for local keywords and Google's 750-character limit. | Google Business Profile dashboard | `/gbp-description` |
+| `local-landing.md` | Complete local landing page (600–1,000 words) for a service + city with FAQ and LocalBusiness schema. | Internal business data | `/local-landing` |
+| `review-responses.md` | 12 review response templates covering 5-star, 3-star, and 1–2 star reviews. | Google Business Profile · Yelp | `/review-responses` |
 
 ---
 
@@ -391,9 +391,9 @@ Prompts are designed to feed into each other.
 
 | Prompt | What it does | Get data from | Command |
 |---|---|---|---|
-| `product-description-writer.md` | Product descriptions in three formats (short, long, bullets) plus title tag and meta description. | Product database · spec sheets | `/product-description` |
-| `category-page-content-writer.md` | Above-fold intro and below-fold buyer's guide content for category pages. | Internal product data · competitor pages | `/category-page` |
-| `product-schema-generator.md` | Complete Product JSON-LD with Offer, AggregateRating, and Review nesting. | Product database · pricing system | `/product-schema` |
+| `product-description.md` | Product descriptions in three formats (short, long, bullets) plus title tag and meta description. | Product database · spec sheets | `/product-description` |
+| `category-page.md` | Above-fold intro and below-fold buyer's guide content for category pages. | Internal product data · competitor pages | `/category-page` |
+| `product-schema.md` | Complete Product JSON-LD with Offer, AggregateRating, and Review nesting. | Product database · pricing system | `/product-schema` |
 
 ---
 
@@ -403,16 +403,16 @@ Prompts are designed to feed into each other.
 
 | Prompt | What it does | Get data from | Command |
 |---|---|---|---|
-| `ga4-organic-traffic-analysis.md` | GA4 organic traffic trends, landing page engagement quality, and hidden gem pages. | GA4 → Acquisition → Landing page → Export CSV | `/ga4-traffic` |
-| `ga4-conversion-analysis.md` | Which organic pages drive the most conversions and where conversion leaks occur. | GA4 → Conversions (filter: Organic Search) → Export CSV | `/ga4-conversions` |
-| `ga4-content-performance.md` | Four-quadrant content matrix (traffic × engagement) with refresh and consolidation recommendations. | GA4 → Engagement → Pages and Screens → Export CSV | `/ga4-content` |
+| `ga4-traffic.md` | GA4 organic traffic trends, landing page engagement quality, and hidden gem pages. | GA4 → Acquisition → Landing page → Export CSV | `/ga4-traffic` |
+| `ga4-conversions.md` | Which organic pages drive the most conversions and where conversion leaks occur. | GA4 → Conversions (filter: Organic Search) → Export CSV | `/ga4-conversions` |
+| `ga4-content.md` | Four-quadrant content matrix (traffic × engagement) with refresh and consolidation recommendations. | GA4 → Engagement → Pages and Screens → Export CSV | `/ga4-content` |
 
 #### Google Search Console
 
 | Prompt | What it does | Get data from | Command |
 |---|---|---|---|
-| `gsc-indexing-audit.md` | Diagnoses every GSC Coverage exclusion reason with fixes and an indexation health score. | GSC → Index → Pages → Export | `/gsc-indexing` |
-| `gsc-links-report-analysis.md` | GSC external and internal link data: equity distribution, anchor text risks, and quick-win linking table. | GSC → Links → Export | `/gsc-links` |
+| `gsc-indexing.md` | Diagnoses every GSC Coverage exclusion reason with fixes and an indexation health score. | GSC → Index → Pages → Export | `/gsc-indexing` |
+| `gsc-links.md` | GSC external and internal link data: equity distribution, anchor text risks, and quick-win linking table. | GSC → Links → Export | `/gsc-links` |
 
 ---
 
@@ -421,9 +421,9 @@ Prompts are designed to feed into each other.
 | Prompt | What it does | Get data from | Command |
 |---|---|---|---|
 | `competitor-analysis.md` | Full competitive intelligence: keyword footprint, content strategy, backlink profile, and 3-month action plan. | Ahrefs · Semrush · SERP research | `/competitor-analysis` |
-| `content-gap-analysis.md` | Keyword and topic gaps vs competitors, prioritized into a three-tier content roadmap. | Ahrefs Content Gap · Semrush Keyword Gap | `/content-gap` |
-| `google-search-console-analysis.md` | GSC performance: traffic trends, CTR opportunities, declining pages, and top 10 action items. | GSC → Performance → Export CSV | `/gsc-performance` |
-| `monthly-report-writer.md` | Client-ready monthly SEO report with executive summary, metrics, wins, concerns, and next steps. | GA4 · GSC · rank tracker | `/monthly-report` |
+| `content-gap.md` | Keyword and topic gaps vs competitors, prioritized into a three-tier content roadmap. | Ahrefs Content Gap · Semrush Keyword Gap | `/content-gap` |
+| `gsc-performance.md` | GSC performance: traffic trends, CTR opportunities, declining pages, and top 10 action items. | GSC → Performance → Export CSV | `/gsc-performance` |
+| `monthly-report.md` | Client-ready monthly SEO report with executive summary, metrics, wins, concerns, and next steps. | GA4 · GSC · rank tracker | `/monthly-report` |
 | `penalty-diagnosis.md` | Diagnoses organic traffic drops (algorithm, manual action, technical, competitive) with a recovery plan. | GA4 · GSC Performance · Ahrefs | `/penalty-diagnosis` |
 
 ---
@@ -434,11 +434,11 @@ GEO (Generative Engine Optimization) — optimizing content so AI tools like Cha
 
 | Prompt | What it does | Get data from | Command |
 |---|---|---|---|
-| `geo-content-audit.md` | Audits a page across 7 GEO dimensions and returns a GEO Readiness Score 1–10 with specific fixes. | Existing page content (paste directly) | `/geo-audit` |
-| `geo-content-rewrite.md` | Rewrites a page to maximize AI citation chances: direct answers, entity definitions, structured facts. | Existing page content (paste directly) | `/geo-rewrite` |
-| `geo-entity-definition.md` | Complete entity definition package — definition block, fact sheet, relationship statements, and JSON-LD. | Internal brand/product data | `/geo-entity` |
-| `geo-brand-visibility-checker.md` | 15–20 query test set across brand, category, and intent queries with a visibility score across AI tools. | Brand info + competitor names | `/geo-visibility` |
-| `geo-ai-citation-analysis.md` | Which sources AI tools cite for your topics, why, and a Citation Opportunity Map with fast wins. | Target queries + competitor domains | `/geo-citations` |
+| `geo-audit.md` | Audits a page across 7 GEO dimensions and returns a GEO Readiness Score 1–10 with specific fixes. | Existing page content (paste directly) | `/geo-audit` |
+| `geo-rewrite.md` | Rewrites a page to maximize AI citation chances: direct answers, entity definitions, structured facts. | Existing page content (paste directly) | `/geo-rewrite` |
+| `geo-entity.md` | Complete entity definition package — definition block, fact sheet, relationship statements, and JSON-LD. | Internal brand/product data | `/geo-entity` |
+| `geo-visibility.md` | 15–20 query test set across brand, category, and intent queries with a visibility score across AI tools. | Brand info + competitor names | `/geo-visibility` |
+| `geo-citations.md` | Which sources AI tools cite for your topics, why, and a Citation Opportunity Map with fast wins. | Target queries + competitor domains | `/geo-citations` |
 
 ---
 
@@ -454,11 +454,7 @@ Input I Will Provide:
 Output Instructions:
 ```
 
-2. **Add it to `sync.sh`** in the `SKILL_TO_COMMAND` mapping:
-
-```python
-"technical-seo/your-skill-name.md": "your-command-name.md",
-```
+2. **Name the file to match the command** you want (e.g. `technical-seo/your-skill.md` → `/your-skill`). The sync script picks it up automatically.
 
 3. **Run the sync** to generate the Claude Code slash command:
 
