@@ -171,7 +171,7 @@ Output is saved automatically to `outputs/` after each prompt.
 
 The prompts work with any AI-powered editor that lets you reference files. Open the repo as your workspace and use the Read approach in the chat panel.
 
-**Cursor**
+**[Cursor](https://cursor.com)**
 
 Open the repo folder in Cursor, then use the chat (`Cmd+L`):
 
@@ -180,7 +180,7 @@ Open the repo folder in Cursor, then use the chat (`Cmd+L`):
 [paste robots.txt here]
 ```
 
-**Windsurf**
+**[Windsurf](https://windsurf.com)**
 
 Open the repo folder in Windsurf, then use Cascade:
 
@@ -189,7 +189,7 @@ Read skills/reporting-analysis/google-search-console-analysis.md and follow its 
 GSC data: data/gsc-queries.csv. Site: acme.com. Period: last 3 months.
 ```
 
-**Antigravity**
+**[Antigravity](https://antigravity.google)**
 
 Open the repo folder as your workspace:
 
