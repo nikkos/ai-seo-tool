@@ -1,6 +1,9 @@
 # macOS
 .DS_Store
 
+# MCP config with real credentials — never commit
+mcp.json
+
 # Client data — never commit
 data/*
 !data/.gitkeep
